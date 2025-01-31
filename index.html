@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles - Video Editor & Animator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #4b0082, #2a0036);
+            color: #fff;
+            overflow-x: hidden;
+            animation: backgroundMove 10s linear infinite;
+        }
+        @keyframes backgroundMove {
+            0% {background: linear-gradient(to bottom, #4b0082, #2a0036);}
+            50% {background: linear-gradient(to bottom, #2a0036, #4b0082);}
+            100% {background: linear-gradient(to bottom, #4b0082, #2a0036);}
+        }
+        header {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        h1 {
+            font-size: 4rem;
+            letter-spacing: 2px;
+            color: #e0aaff;
+            text-shadow: 0 0 15px rgba(255, 0, 255, 0.5), 0 0 25px rgba(0, 255, 255, 0.5);
+            animation: bounce 2s infinite;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #b0b0ff;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .intro, .about, .contact {
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .about img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            margin: 20px auto;
+            animation: rotateImage 10s infinite linear;
+        }
+        @keyframes rotateImage {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .skill {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            animation: bounceSkill 1.5s infinite;
+        }
+        @keyframes bounceSkill {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .contact button {
+            background-color: #a040ff;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        .contact button:hover {
+            background-color: #8b00ff;
+            transform: scale(1.1);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Charles</h1>
+        <h2>Video Editor & Animator</h2>
+    </header>
+
+    <section class="intro">
+        <h2>Welcome to My Portfolio</h2>
+        <p>I'm Charles, a passionate video editor and animator. I specialize in creating immersive visuals, stunning animations, and high-quality video productions. Whether it’s for YouTube, social media, or films, I bring creative visions to life through powerful video editing and animation techniques.</p>
+    </section>
+
+    <section class="about">
+        <h2>About Me</h2>
+        <img src="https://via.placeholder.com/300" alt="Charles">
+        <p>I’ve been working as a video editor and animator for over 5 years. My journey started with editing YouTube videos and quickly expanded to animating motion graphics and visual effects for various clients. I'm skilled in software like Adobe Premiere Pro, After Effects, and Blender, and I always strive to deliver top-quality content.</p>
+    </section>
+
+    <section class="skills">
+        <div class="skill">
+            <h3>Video Editing</h3>
+            <p>Mastering cutting-edge video editing techniques for seamless storytelling.</p>
+        </div>
+        <div class="skill">
+            <h3>Animation</h3>
+            <p>Creating stunning motion graphics and 3D animations for all kinds of projects.</p>
+        </div>
+        <div class="skill">
+            <h3>VFX & Motion Design</h3>
+            <p>Bringing visuals to life with eye-catching special effects and design elements.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Let's Connect</h2>
+        <p>If you're looking for a creative video editor or animator, let's talk! I’d love to collaborate with you on your next project.</p>
+        <a href="https://t.me/Charles" target="_blank">
+            <button>Contact Me on Telegram</button>
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2025 Charles - Video Editor & Animator. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
