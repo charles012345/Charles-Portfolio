@@ -3,168 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Charles!</title>
+    <title>Dancing Spiders</title>
     <style>
-        /* Background Style */
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', sans-serif;
-            color: white;
+            height: 100vh;
+            background-color: #f0f0f0;
             overflow: hidden;
         }
 
-        /* Heading Style */
-        h1 {
-            font-size: 3em;
-            text-align: center;
-            animation: fadeIn 3s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Cool animation for confetti */
-        .confetti {
+        .spider {
+            width: 100px;
             position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0;
-            animation: confettiAnimation 4s forwards;
+            animation: dance 1s infinite;
         }
 
-        /* FadeIn Animation for Heading */
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+        @keyframes dance {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-20px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(20px); }
+            100% { transform: translateY(0); }
         }
-
-        /* Confetti falling animation */
-        @keyframes confettiAnimation {
-            0% {
-                opacity: 1;
-                transform: translateY(-200px) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(600px) rotate(720deg);
-            }
-        }
-
-        /* Button Styles */
-        .button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #218838;
-        }
-
-        .message-container {
-            text-align: center;
-        }
-
-        .notification {
-            font-size: 1.2em;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        /* Centered container for buttons */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
     </style>
 </head>
 <body>
-
-<!-- Confetti Container -->
-<div class="confetti"></div>
-
-<!-- Main Content -->
-<div class="message-container">
-    <h1>Happy Birthday Charles!</h1>
-    <div id="message" style="display: none;">
-        <p>Would you like to sing him a song?</p>
-        <div class="button-container">
-            <button class="button" id="yesBtn">Yes</button>
-            <button class="button" id="noBtn">No</button>
-        </div>
-    </div>
-    <div id="notification" style="display: none;">
-        <p class="notification">It's his special day, just sing for him🥹</p>
-        <button class="button" id="singBtn">Sing for him</button>
-    </div>
-</div>
-
-<script>
-    // Function to show confetti animation
-    function showConfetti() {
-        let confettiDiv = document.querySelector('.confetti');
-        for (let i = 0; i < 30; i++) {
-            let confetti = document.createElement('div');
-            confetti.style.position = 'absolute';
-            confetti.style.width = '10px';
-            confetti.style.height = '10px';
-            confetti.style.backgroundColor = getRandomColor();
-            confetti.style.top = Math.random() * -200 + 'px';
-            confetti.style.left = Math.random() * window.innerWidth + 'px';
-            confetti.style.animation = `confettiAnimation 4s forwards ${Math.random() * 2}s`;
-            confettiDiv.appendChild(confetti);
-        }
-        setTimeout(function () {
-            confettiDiv.style.opacity = 1;
-        }, 100);
-    }
-
-    // Random color for confetti
-    function getRandomColor() {
-        const colors = ['#ff5733', '#33cfff', '#ffcc00', '#8e24aa', '#00ff00', '#ff00ff'];
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-
-    // Show confetti and message after a delay
-    setTimeout(function() {
-        showConfetti();
-        setTimeout(function() {
-            document.querySelector('h1').style.display = 'none';
-            document.getElementById('message').style.display = 'block';
-        }, 4000);
-    }, 1000);
-
-    // Handle "Yes" button
-    document.getElementById('yesBtn').addEventListener('click', function() {
-        window.location.href = 'https://wa.me/2347043792977'; // Redirect to WhatsApp
-    });
-
-    // Handle "No" button
-    document.getElementById('noBtn').addEventListener('click', function() {
-        document.getElementById('message').style.display = 'none';
-        document.getElementById('notification').style.display = 'block';
-    });
-
-    // Handle "Sing for him" button
-    document.getElementById('singBtn').addEventListener('click', function() {
-        window.location.href = 'https://wa.me/2347043792977'; // Redirect to WhatsApp
-    });
-</script>
-
+    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 10%; animation-delay: 0s;">
+    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 30%; animation-delay: 0.2s;">
+    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 50%; animation-delay: 0.4s;">
+    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 70%; animation-delay: 0.6s;">
+    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 90%; animation-delay: 0.8s;">
 </body>
 </html>
