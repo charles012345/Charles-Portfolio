@@ -1,39 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dancing Spiders</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            overflow: hidden;
-        }
+	<title>Valentine's Day</title>
+	<style>
+		/* Love-like Background */
+		body {
+			font-family: Arial, sans-serif;
+			background: radial-gradient(circle, #ff69b4, #ff1493, #ff69b4);
+			text-align: center;
+			overflow: hidden;
+			padding-top: 50px;
+			position: relative;
+			height: 100vh;
+		}
 
-        .spider {
-            width: 100px;
-            position: absolute;
-            animation: dance 1s infinite;
-        }
+		/* Buttons */
+		.yes {
+			background-color: green;
+			color: white;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			transition: font-size 0.3s;
+		}
+		.no {
+			background-color: red;
+			color: white;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			transition: font-size 0.3s;
+		}
 
-        @keyframes dance {
-            0% { transform: translateY(0); }
-            25% { transform: translateY(-20px); }
-            50% { transform: translateY(0); }
-            75% { transform: translateY(20px); }
-            100% { transform: translateY(0); }
-        }
-    </style>
+		/* Falling Flowers */
+		.flowers {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: -1;
+		}
+
+		.flower {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background-image: url('https://img.icons8.com/ios/452/flower.png');
+			background-size: cover;
+			animation: flower-fall 4s linear infinite;
+		}
+
+		@keyframes flower-fall {
+			0% {
+				transform: translateY(0) rotate(0deg);
+			}
+			100% {
+				transform: translateY(100vh) rotate(360deg);
+			}
+		}
+
+		/* Result message */
+		#result {
+			display: none;
+			font-size: 20px;
+			color: white;
+			margin-top: 20px;
+		}
+	</style>
 </head>
 <body>
-    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 10%; animation-delay: 0s;">
-    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 30%; animation-delay: 0.2s;">
-    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 50%; animation-delay: 0.4s;">
-    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 70%; animation-delay: 0.6s;">
-    <img src="https://via.placeholder.com/100?text=🕷️" class="spider" style="left: 90%; animation-delay: 0.8s;">
+	<h1 id="question">Will you be my Valentine?</h1>
+	<button class="yes" onclick="yes()">Yes</button>
+	<button class="no" onclick="no()">No</button>
+	<div id="result"></div>
+
+	<!-- Falling Flowers -->
+	<div id="flowers" class="flowers"></div>
+
+	<script>
+		// Flower creation and animation
+		function createFallingFlower() {
+			const flower = document.createElement('div');
+			flower.classList.add('flower');
+			const size = Math.random() * 20 + 10; // Flower size
+			flower.style.width = `${size}px`;
+			flower.style.height = `${size}px`;
+			flower.style.left = `${Math.random() * 100}%`;
+			document.getElementById('flowers').appendChild(flower);
+			setTimeout(() => flower.remove(), 4000); // Remove after animation ends
+		}
+
+		// Create flowers every 0.5 seconds
+		setInterval(createFallingFlower, 500);
+
+		// Handle "Yes" button click
+		let noClicked = 0;
+		function yes() {
+			document.getElementById("result").style.display = "block";
+			document.getElementById("result").innerHTML = "Timeless by The Weeknd will play now!";
+		}
+
+		// Handle "No" button click
+		function no() {
+			noClicked++;
+			if (noClicked === 1) {
+				document.getElementById("question").innerHTML = "Will you be my Valentine?";
+				document.getElementsByClassName("yes")[0].style.fontSize = "24px";
+				document.getElementsByClassName("no")[0].innerHTML = "Please";
+			} else if (noClicked === 2) {
+				document.getElementsByClassName("yes")[0].style.fontSize = "36px";
+				document.getElementsByClassName("no")[0].innerHTML = "Pretty please";
+			} else if (noClicked === 3) {
+				document.getElementsByClassName("yes")[0].style.fontSize = "48px";
+				document.getElementsByClassName("no")[0].innerHTML = "Yes";
+				var thirdOption = document.createElement("button");
+				thirdOption.innerHTML = "Do you want a third option?";
+				thirdOption.onclick = function() {alert("No, you don't get anymore options!");};
+				document.body.appendChild(thirdOption);
+			}
+		}
+	</script>
 </body>
 </html>
