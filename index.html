@@ -3,166 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charles - Video Editor & Animator</title>
+    <title>Happy Birthday Charles!</title>
     <style>
-        * {
+        /* Background Style */
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #4b0082, #2a0036);
-            color: #fff;
-            overflow-x: hidden;
-            animation: backgroundMove 10s linear infinite;
-        }
-        @keyframes backgroundMove {
-            0% {background: linear-gradient(to bottom, #4b0082, #2a0036);}
-            50% {background: linear-gradient(to bottom, #2a0036, #4b0082);}
-            100% {background: linear-gradient(to bottom, #4b0082, #2a0036);}
-        }
-        header {
-            text-align: center;
-            padding: 100px 20px;
-        }
-        h1 {
-            font-size: 4rem;
-            letter-spacing: 2px;
-            color: #e0aaff;
-            text-shadow: 0 0 15px rgba(255, 0, 255, 0.5), 0 0 25px rgba(0, 255, 255, 0.5);
-            animation: bounce 2s infinite;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-top: 20px;
-            color: #b0b0ff;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .intro, .about, .contact {
-            animation: fadeIn 2s ease-out;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .about img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-            margin: 20px auto;
-            animation: rotateImage 10s infinite linear;
-        }
-        @keyframes rotateImage {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .skills {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow: hidden;
         }
-        .skill {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            width: 200px;
+
+        /* Heading Style */
+        h1 {
+            font-size: 3em;
             text-align: center;
-            animation: bounceSkill 1.5s infinite;
+            animation: fadeIn 3s ease-out forwards;
+            opacity: 0;
         }
-        @keyframes bounceSkill {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
+
+        /* Cool animation for confetti */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            animation: confettiAnimation 4s forwards;
+        }
+
+        /* FadeIn Animation for Heading */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
             }
         }
-        .contact button {
-            background-color: #a040ff;
-            color: #fff;
-            font-size: 1.2rem;
+
+        /* Confetti falling animation */
+        @keyframes confettiAnimation {
+            0% {
+                opacity: 1;
+                transform: translateY(-200px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(600px) rotate(720deg);
+            }
+        }
+
+        /* Button Styles */
+        .button {
             padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #28a745;
+            color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 10px;
             cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
-            transition: all 0.3s ease;
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
-        .contact button:hover {
-            background-color: #8b00ff;
-            transform: scale(1.1);
+
+        .button:hover {
+            background-color: #218838;
         }
-        footer {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
+
+        .message-container {
             text-align: center;
-            margin-top: 50px;
         }
+
+        .notification {
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Centered container for buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>Charles</h1>
-        <h2>Video Editor & Animator</h2>
-    </header>
 
-    <section class="intro">
-        <h2>Welcome to My Portfolio</h2>
-        <p>I'm Charles, a passionate video editor and animator. I specialize in creating immersive visuals, stunning animations, and high-quality video productions. Whether it’s for YouTube, social media, or films, I bring creative visions to life through powerful video editing and animation techniques.</p>
-    </section>
+<!-- Confetti Container -->
+<div class="confetti"></div>
 
-    <section class="about">
-        <h2>About Me</h2>
-        <img src="https://via.placeholder.com/300" alt="Charles">
-        <p>I’ve been working as a video editor and animator for over 5 years. My journey started with editing YouTube videos and quickly expanded to animating motion graphics and visual effects for various clients. I'm skilled in software like Adobe Premiere Pro, After Effects, and Blender, and I always strive to deliver top-quality content.</p>
-    </section>
-
-    <section class="skills">
-        <div class="skill">
-            <h3>Video Editing</h3>
-            <p>Mastering cutting-edge video editing techniques for seamless storytelling.</p>
+<!-- Main Content -->
+<div class="message-container">
+    <h1>Happy Birthday Charles!</h1>
+    <div id="message" style="display: none;">
+        <p>Would you like to sing him a song?</p>
+        <div class="button-container">
+            <button class="button" id="yesBtn">Yes</button>
+            <button class="button" id="noBtn">No</button>
         </div>
-        <div class="skill">
-            <h3>Animation</h3>
-            <p>Creating stunning motion graphics and 3D animations for all kinds of projects.</p>
-        </div>
-        <div class="skill">
-            <h3>VFX & Motion Design</h3>
-            <p>Bringing visuals to life with eye-catching special effects and design elements.</p>
-        </div>
-    </section>
+    </div>
+    <div id="notification" style="display: none;">
+        <p class="notification">It's his special day, just sing for him🥹</p>
+        <button class="button" id="singBtn">Sing for him</button>
+    </div>
+</div>
 
-    <section class="contact">
-        <h2>Let's Connect</h2>
-        <p>If you're looking for a creative video editor or animator, let's talk! I’d love to collaborate with you on your next project.</p>
-        <a href="https://t.me/Charles" target="_blank">
-            <button>Contact Me on Telegram</button>
-        </a>
-    </section>
+<script>
+    // Function to show confetti animation
+    function showConfetti() {
+        let confettiDiv = document.querySelector('.confetti');
+        for (let i = 0; i < 30; i++) {
+            let confetti = document.createElement('div');
+            confetti.style.position = 'absolute';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.backgroundColor = getRandomColor();
+            confetti.style.top = Math.random() * -200 + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.animation = `confettiAnimation 4s forwards ${Math.random() * 2}s`;
+            confettiDiv.appendChild(confetti);
+        }
+        setTimeout(function () {
+            confettiDiv.style.opacity = 1;
+        }, 100);
+    }
 
-    <footer>
-        <p>© 2025 Charles - Video Editor & Animator. All Rights Reserved.</p>
-    </footer>
+    // Random color for confetti
+    function getRandomColor() {
+        const colors = ['#ff5733', '#33cfff', '#ffcc00', '#8e24aa', '#00ff00', '#ff00ff'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Show confetti and message after a delay
+    setTimeout(function() {
+        showConfetti();
+        setTimeout(function() {
+            document.querySelector('h1').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+        }, 4000);
+    }, 1000);
+
+    // Handle "Yes" button
+    document.getElementById('yesBtn').addEventListener('click', function() {
+        window.location.href = 'https://wa.me/2347043792977'; // Redirect to WhatsApp
+    });
+
+    // Handle "No" button
+    document.getElementById('noBtn').addEventListener('click', function() {
+        document.getElementById('message').style.display = 'none';
+        document.getElementById('notification').style.display = 'block';
+    });
+
+    // Handle "Sing for him" button
+    document.getElementById('singBtn').addEventListener('click', function() {
+        window.location.href = 'https://wa.me/2347043792977'; // Redirect to WhatsApp
+    });
+</script>
+
 </body>
 </html>
