@@ -3,92 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Charles</title>
+    <title>Shauna, Will You Be My Valentine?</title>
     <style>
+        /* Resetting margins and setting body styles */
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
             height: 100vh;
+            overflow: hidden;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            background: linear-gradient(45deg, #ff7e5f, #feb47b);
-            background-size: 400% 400%;
-            animation: gradientBackground 5s ease infinite;
+            text-align: center;
         }
 
-        h1, h2 {
-            font-size: 4em;
-            text-transform: uppercase;
-            font-family: 'Arial', sans-serif;
-            color: white;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
-            animation: textAnimation 3s ease-in-out infinite;
+        /* Background video */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
-        @keyframes textAnimation {
-            0% { color: white; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); }
-            50% { color: #ffcc00; text-shadow: 3px 3px 5px rgba(255, 0, 0, 0.6); }
-            100% { color: white; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); }
+        /* Container for Valentine proposal */
+        .container {
+            position: relative;
+            z-index: 2;
         }
 
-        @keyframes gradientBackground {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .button-container {
-            display: flex;
-            gap: 20px;
+        .buttons {
             margin-top: 20px;
         }
 
-        .button {
+        .yes-button {
+            background-color: #ff69b4;
+            border: none;
             padding: 10px 20px;
-            font-size: 1.5em;
-            text-transform: uppercase;
-            border-radius: 10px;
+            color: white;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.2s;
+            border-radius: 5px;
+            margin: 5px;
         }
 
-        .yes {
-            background-color: green;
-            color: white;
+        .yes-button:hover {
+            background-color: #ff85c1;
         }
 
-        .no {
-            background-color: red;
-            color: white;
-        }
-
-        .button:hover {
-            transform: scale(1.1);
+        .gif_container img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Happy Birthday Charles</h1>
-    <h2>SING FOR HIM?</h2>
-    <div class="button-container">
-        <button class="button yes" onclick="handleYes()">Yes</button>
-        <button class="button no" onclick="handleNo()">No</button>
+    <!-- Background Video -->
+    <video class="video-background" autoplay muted loop>
+        <source src="/storage/emulated/0/Download/MEGA Downloads/snowflakes.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="yes-audio">
+        <source src="/storage/emulated/0/DCIM/Camera/62b49792873b213d05be1aaff3bdb653.mp4" type="audio/mp4">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <audio id="no-audio">
+        <source src="/storage/emulated/0/DCIM/Camera/48336365d693c836d6bfa87ced1b1ee1.mp4" type="audio/mp4">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="container">
+        <h1>Shauna, Will You Be My Valentine?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="yes-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
     </div>
 
     <script>
-        function handleYes() {
-            window.location.href = 'https://wa.me/+2347043792977';
+        const yesAudio = document.getElementById("yes-audio");
+        const noAudio = document.getElementById("no-audio");
+
+        function handleYesClick() {
+            noAudio.pause();
+            noAudio.currentTime = 0;
+            yesAudio.play();
+            alert("Yay! Love is in the air! ❤️");
         }
 
-        function handleNo() {
-            document.querySelector('h2').textContent = "Sing for HIM";
-            setTimeout(function() {
-                window.location.href = 'https://wa.me/+2347043792977';
-            }, 1000);
+        function handleNoClick() {
+            yesAudio.pause();
+            yesAudio.currentTime = 0;
+            noAudio.play();
+            alert("Damn, I'm gonna go cry now 💔");
         }
     </script>
 </body>
