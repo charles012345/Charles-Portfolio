@@ -3,110 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shauna, Will You Be My Valentine?</title>
+    <title>Best Friend</title>
     <style>
-        /* Resetting margins and setting body styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            overflow: hidden;
-            color: white;
+            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            color: white;
             text-align: center;
         }
 
-        /* Background video */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        /* Container for Valentine proposal */
-        .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .yes-button {
-            background-color: #ff69b4;
-            border: none;
-            padding: 10px 20px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
-        }
-
-        .yes-button:hover {
-            background-color: #ff85c1;
-        }
-
-        .gif_container img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
+        .glow-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 40px #ff0080;
         }
     </style>
 </head>
 <body>
-    <!-- Background Video -->
-    <video class="video-background" autoplay muted loop>
-        <source src="https://www.mediafire.com/file/4ypyhd0ih8huu5f/80337778c99e716de1ae1be10d12d253.mp4/file" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Hidden Audio Elements -->
-    <audio id="yes-audio">
-        <source src="https://www.mediafire.com/file/t8r4gwb5lc1fbu7/62b49792873b213d05be1aaff3bdb653.mp4/file" type="audio/mp4">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <audio id="no-audio">
-        <source src="https://www.mediafire.com/file/ad0tm06mmd3nzzj/48336365d693c836d6bfa87ced1b1ee1.mp4/file" type="audio/mp4">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <div class="container">
-        <h1>Shauna, Will You Be My Valentine?</h1>
-        <div class="buttons">
-            <button class="yes-button" onclick="handleYesClick()">Yes</button>
-            <button class="yes-button" onclick="handleNoClick()">No</button>
-        </div>
-        <div class="gif_container">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
-        </div>
+    <div class="glow-text">
+        Zara is my BEST FRIEND,<br>
+        I'M STILL TALLER
     </div>
-
-    <script>
-        const yesAudio = document.getElementById("yes-audio");
-        const noAudio = document.getElementById("no-audio");
-
-        function handleYesClick() {
-            noAudio.pause();
-            noAudio.currentTime = 0;
-            yesAudio.play();
-            alert("Yay! Love is in the air! ❤️");
-        }
-
-        function handleNoClick() {
-            yesAudio.pause();
-            yesAudio.currentTime = 0;
-            noAudio.play();
-            alert("Damn, I'm gonna go cry now 💔");
-        }
-    </script>
 </body>
 </html>
