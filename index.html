@@ -3,59 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Video</title>
+    <title>HAPPY BIRTHDAY SHAUNA</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
         body {
+            background-color: black;
             text-align: center;
             font-family: 'Orbitron', sans-serif;
-            padding: 20px;
-            background-color: #111;
-            color: #00ffcc;
+            color: white;
         }
-        h1 {
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0, 255, 204, 0.8);
+        .glowing-text {
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: 0 0 8px cyan, 0 0 16px cyan, 0 0 24px cyan;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         .video-container {
-            position: relative;
+            margin-top: 20px;
+            border: 3px solid cyan;
+            padding: 5px;
             display: inline-block;
-            border: 2px solid #00ffcc;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .loading-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 10px;
-            font-size: 16px;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         iframe {
-            width: 80%;
-            max-width: 800px;
-            height: 450px;
-            border: none;
+            width: 360px;
+            height: 315px;
         }
     </style>
 </head>
 <body>
-    <h1>Only for The STARBOY</h1>
+
+    <h1 class="glowing-text">
+        HAPPY BIRTHDAY SHAUNA! <br> LONG LIFE AND PROSPERITY! <br>  
+        I'VE LOVED YOU AND ALWAYS WILL LOVE YOU.
+    </h1>
+
     <div class="video-container">
-        <div id="loadingText" class="loading-text">Loading...</div>
-        <iframe id="videoFrame" src="https://drive.google.com/file/d/1uEGWQU6zEjIgIJCqL_OnXZsW0PWm7cpD/preview" allowfullscreen></iframe>
+        <iframe src="https://drive.google.com/file/d/1QNPhJOICAYhekdnMi22HWPsYLE9b15en/preview" allow="autoplay"></iframe>
     </div>
 
-    <script>
-        document.getElementById("videoFrame").addEventListener("load", function() {
-            document.getElementById("loadingText").style.display = "none";
-        });
-    </script>
 </body>
 </html>
